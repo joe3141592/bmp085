@@ -20,7 +20,6 @@ unsigned long UP = 0;
 long temp = 0;
 long b5 = 0;
 int ADDR = 0;
-int HEIGHT = 0;
 int calibrated = 0;
 
 int bmp085::readRegister(int reg){
@@ -36,9 +35,8 @@ int bmp085::readRegister(int reg){
   }
 }
 
-bmp085::bmp085(int addr, int height){
+bmp085::bmp085(int addr){
 	ADDR = addr;
-	HEIGHT = height;
 	
   
 }
@@ -61,7 +59,7 @@ void bmp085::calibrate() {
 }	
 }
 
-long bmp085::ReadRawPressure(){
+long bmp085::ReadPressure(){
 calibrate();
 
   long b6, x1, x2, x3, b3, p;
@@ -102,9 +100,9 @@ p = p + (x1+x2+3791) / pow(2,4);
 return p;
 }
   
-float bmp085::ReadPressure(){
-	long rawPres = ReadRawPressure();
-	float result = rawPres / pow((1-HEIGHT/44330.00),5.255)/100;
+float bmp085::ReadPressureAtSeaLvl(float height){
+	long rawPres = ReadPressure();
+	float result = rawPres / pow((1-height/44330.00),5.255)/100;
 	return result;
 }
 

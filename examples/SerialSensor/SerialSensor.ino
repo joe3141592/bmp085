@@ -8,10 +8,13 @@ Serial.begin(9600);
 }
 
 void loop(){
- Serial.print("TEMP:");
- Serial.println(BMP.ReadTemp());
+ Serial.print("Temperature:"); 
+ Serial.println(BMP.ReadTemp()); //Reading calibrated temperature
  Serial.print("Pressure:");
- Serial.println(BMP.ReadPressure());
+ Serial.println(BMP.ReadPressure()); //Reading calibrated pressure
+ Serial.print("Pressure at sea level:");
+ Serial.println(BMP.ReadPressureAtSeaLvl()); //Reading pressure at sea level
+
  delay(200);
 
 }

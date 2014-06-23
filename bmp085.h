@@ -3,11 +3,11 @@
 #include <Arduino.h>
 class bmp085 {
 public:
-	bmp085(int addr, int height);
+	bmp085(int addr);
 	~bmp085();
 	float ReadTemp();
-	long ReadRawPressure();
-	float ReadPressure();
+	long ReadPressure();
+	float ReadPressureAtSeaLvl(float height);
 	
 private:
 	void calibrate();
