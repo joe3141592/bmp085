@@ -1,6 +1,8 @@
 # bmp085
 
-## Summary
+![my_icon](https://dl.dropboxusercontent.com/u/2224573/bmp085.png)
+
+## Overview
 
 This library is meant to simplify communication with the BOSCH085 Digital pressure sensor:
 It is based on the great tutorial by adafruit (https://www.sparkfun.com/tutorials/253) and
